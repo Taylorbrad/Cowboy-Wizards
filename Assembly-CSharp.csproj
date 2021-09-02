@@ -62,6 +62,7 @@
      <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
      <Compile Include="Assets\Scripts\GunMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ShootGun.cs" />
      <Compile Include="Assets\Scripts\SpriteAnimator.cs" />
      <None Include="Assets\Cainos\Pixel Art Top Down - Basic\Changelog.txt" />
      <None Include="Assets\Cainos\Pixel Art Top Down - Basic\Shader\SH Sprite Shadow.shader" />

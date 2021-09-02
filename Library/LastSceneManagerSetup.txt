@@ -3,7 +3,3 @@ sceneSetups:
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-- path: Assets/Cainos/Pixel Art Top Down - Basic/Scene/SC Pixel Art Top Down - Basic.unity
-  isLoaded: 1
-  isActive: 0
-  isSubScene: 0

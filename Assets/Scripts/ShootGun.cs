@@ -6,27 +6,51 @@ public class ShootGun : MonoBehaviour
 {
 
     public SpriteAnimator flashAnimation;
-    public SpriteRenderer sprite;
+    public SpriteRenderer flash;
+    public SpriteRenderer bullet;
+    public Rigidbody2D bulletRB;
+    public Transform bulletPos; //pos meaning position
+    public Transform gunPos;
+    public int travelTimeSet = 700;
 
-    // Start is called before the first frame update
+    public int travelTime;
+
     void Start()
     {
-
+      travelTime = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
+        if (travelTime > 0)
+        {
+          travelTime--;
+          bulletPos.position += new Vector3((float).1,0);
+        }
+
         if(!flashAnimation.isPlaying){
-            sprite.enabled = false;
+            flash.enabled = false;
             flashAnimation.Play("Idle");
         }
 
-        if (Input.GetMouseButtonDown(0)){
-            sprite.enabled = true;
+        if (Input.GetMouseButtonDown(0) && travelTime == 0){
+            travelTime = travelTimeSet;
+            flash.enabled = true;
             flashAnimation.Play("Shoot");
+            bullet.enabled = true;
+            //bulletRB.velocity = new Vector2(10,0);
             }
+
+        if (travelTime == 0)
+        {
+          bullet.enabled = false;
+          bulletRB.velocity = Vector2.zero;
+          bulletPos.position = new Vector3((float).8,(float).063);
+          //bulletPos.rotation = gunPos.rotation;
+          // bulletPos.x = new Vector2(0,0)[1];
+        }
+        //else
     }
 
 }

@@ -11,22 +11,28 @@ public class ShootGun : MonoBehaviour
     public Rigidbody2D bulletRB;
     public Transform bulletPos; //pos meaning position
     public Transform gunPos;
+    public Transform playerPos;
     public int travelTimeSet = 700;
-
     public int travelTime;
+    public GameObject bulletPoint;
+
+    private Camera cam;
+    private Vector3 mousePos;
 
     void Start()
     {
+      cam = Camera.main;
       travelTime = 0;
     }
 
     void Update()
     {
+        mousePos = Input.mousePosition;
 
         if (travelTime > 0)
         {
           travelTime--;
-          bulletPos.position += new Vector3((float).1,0);
+          bulletPos.Translate(Time.deltaTime*20,0,0);// += new Vector3((float).1,0);
         }
 
         if(!flashAnimation.isPlaying){
@@ -39,6 +45,12 @@ public class ShootGun : MonoBehaviour
             flash.enabled = true;
             flashAnimation.Play("Shoot");
             bullet.enabled = true;
+            float angle = GetAngleFromPlayerToMouse();
+            Debug.Log(gunPos.rotation.eulerAngles[2]);
+            bulletPos.rotation = gunPos.rotation;
+            //bulletPos.Rotate(0,0,-(bulletPos.rotation.eulerAngles[2]) + -(angle) -90);
+            //Debug.Log(gunPos.rotation.eulerAngles[2]);
+            //bulletPos.Rotate(0,0,gunPos.rotation.eulerAngles[2]);
             //bulletRB.velocity = new Vector2(10,0);
             }
 
@@ -46,11 +58,20 @@ public class ShootGun : MonoBehaviour
         {
           bullet.enabled = false;
           bulletRB.velocity = Vector2.zero;
-          bulletPos.position = new Vector3((float).8,(float).063);
+          bulletPos.position = playerPos.position;
           //bulletPos.rotation = gunPos.rotation;
           // bulletPos.x = new Vector2(0,0)[1];
         }
         //else
+    }
+
+    public float GetAngleFromPlayerToMouse()
+    {
+      Vector3 mousePosWorld = cam.ScreenToWorldPoint(new Vector3(mousePos[0],mousePos[1], cam.nearClipPlane));
+      Vector2 playerPosVec = playerPos.position;
+      float deltaX = mousePosWorld[0] - playerPosVec[0];
+      float deltaY = mousePosWorld[1] - playerPosVec[1];
+      return (Mathf.Atan2(deltaX, deltaY) * 180/Mathf.PI);
     }
 
 }

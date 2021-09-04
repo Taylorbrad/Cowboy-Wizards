@@ -302,11 +302,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561802066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0.06300001, z: 6.3602552}
-  m_LocalScale: {x: 0.5406217, y: 0.5406217, z: 0}
+  m_LocalPosition: {x: 0.12056224, y: 0.16681053, z: 1}
+  m_LocalScale: {x: 0.17, y: 0.053125, z: 0}
   m_Children: []
-  m_Father: {fileID: 1257943911}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &561802068
 SpriteRenderer:
@@ -549,8 +549,10 @@ MonoBehaviour:
   bulletRB: {fileID: 561802069}
   bulletPos: {fileID: 561802067}
   gunPos: {fileID: 1257943911}
+  playerPos: {fileID: 295544569}
   travelTimeSet: 125
   travelTime: 0
+  bulletPoint: {fileID: 561802066}
 --- !u!212 &871206389
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -634,7 +636,6 @@ Transform:
   m_LocalScale: {x: 0.3144528, y: 0.3144528, z: 0.3144528}
   m_Children:
   - {fileID: 871206386}
-  - {fileID: 561802067}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -823,8 +824,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696914552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.332, y: 0.162, z: -205.8034}
-  m_LocalScale: {x: 0.6125, y: 0.975, z: 1}
+  m_LocalPosition: {x: 2.332, y: 0.162, z: -2}
+  m_LocalScale: {x: 0.6125, y: 0.975, z: -2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2

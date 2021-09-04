@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    //public Transform playerPos;
     public float moveSpeed;
     public SpriteAnimator spriteAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = moveVec * moveSpeed;
 
         if(moveVec != Vector2.zero)
-        {   
+        {
             spriteAnimator.Play("Walk");
         }
         else

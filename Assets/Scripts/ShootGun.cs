@@ -30,11 +30,6 @@ public class ShootGun : MonoBehaviour
     {
         mousePos = Input.mousePosition;
 /*
-        if (travelTime > 0)
-        {
-          travelTime--;
-          //bulletPos.Translate(Time.deltaTime*20,0,0);// += new Vector3((float).1,0);
-        }
 */
         if(!flashAnimation.isPlaying){
             flash.enabled = false;
@@ -55,7 +50,6 @@ public class ShootGun : MonoBehaviour
             //travelTime = travelTimeSet;
             flash.enabled = true;
             flashAnimation.Play("Shoot");
-
             //Debug.Log(gunPos.rotation.eulerAngles[2]);
             //Debug.Log(angle);
             //bulletPos.rotation = gunPos.rotation;
@@ -77,6 +71,8 @@ public class ShootGun : MonoBehaviour
         */
         //else
     }
+
+    
 
     public float GetAngleFromPlayerToMouse()
     {

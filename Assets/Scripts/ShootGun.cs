@@ -43,11 +43,13 @@ public class ShootGun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)){
             float angle = GetAngleFromPlayerToMouse();
+
             bulletPos.rotation = gunPos.rotation;
             bullet.enabled = true;
             bulletPos.position = gunPos.position;
             //bulletRB.velocity = new Vector2(1,1);
             Rigidbody2D duplicateBullet = Instantiate(bulletRB);
+            //duplicateBullet.getComponent(bullet).dieOrNo = true;
             bullet.enabled = false;
             duplicateBullet.velocity = new Vector2(angle/10,(-(Math.Abs(angle)-90))/10);
             //travelTime = travelTimeSet;

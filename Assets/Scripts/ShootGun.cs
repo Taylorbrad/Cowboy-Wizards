@@ -51,13 +51,13 @@ public class ShootGun : MonoBehaviour
             Rigidbody2D duplicateBullet = Instantiate(bulletRB);
             //duplicateBullet.getComponent(bullet).dieOrNo = true;
             bullet.enabled = false;
-            duplicateBullet.velocity = new Vector2(angle/10,(-(Math.Abs(angle)-90))/10);
+            //duplicateBullet.velocity = new Vector2(angle/10,(-(Math.Abs(angle)-90))/10);
             //travelTime = travelTimeSet;
             flash.enabled = true;
             flashAnimation.Play("Shoot");
 
             //Debug.Log(gunPos.rotation.eulerAngles[2]);
-            Debug.Log(angle);
+            //Debug.Log(angle);
             //bulletPos.rotation = gunPos.rotation;
             //bulletPos.Rotate(0,0,-(bulletPos.rotation.eulerAngles[2]) + -(angle) -90);
             //Debug.Log(gunPos.rotation.eulerAngles[2]);

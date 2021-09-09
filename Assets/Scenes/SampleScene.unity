@@ -389,10 +389,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 561802066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 608679f49b53442fbb7d2c61f2252438, type: 3}
+  m_Script: {fileID: 11500000, guid: 6321c0016f1504577b563065e530a672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeToLive: 250
+  bulletTransform: {fileID: 561802067}
 --- !u!1 &655689561
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
 
   public int timeToLive;
+  public Transform bulletTransform;
   bool dieOrNo;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
       if (dieOrNo)
       {
         --timeToLive;

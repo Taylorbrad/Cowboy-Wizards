@@ -52,30 +52,14 @@ public class bullet : MonoBehaviour
           Destroy(gameObject);
         }
     }
-/*
-    private void damageEnemies(Collider2D[] enemiesToDamage, int damage)
-    {
-      foreach(Collider2D enemy in enemiesToDamage)
-      {
-        if (!enemy.GetComponent<Enemy>().isDead)
-        {
-          enemy.GetComponent<Enemy>().TakeDamage(damage);
-          pierceAmt--;
-          //Debug.Log("Enemy Hit!");
-        }
-      }
-    }
-*/
+
     private void damageEnemy(Collider2D enemy, int inDamage)
     {
       enemy.GetComponent<Enemy>().TakeDamage(inDamage);
       Debug.Log("Enemy Hit! here");
     }
 /*
-    Collider2D[] DetectLayerCollision(Transform collisionPoint, float collisionRadius, LayerMask layerToCollide)
-    {
-      return Physics2D.OverlapCircleAll(bulletTransform.position, (float).5, enemyLayer);
-    }
+
 */
     void OnTriggerEnter2D(Collider2D collidedWith)
     {

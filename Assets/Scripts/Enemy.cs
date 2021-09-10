@@ -8,8 +8,12 @@ public class Enemy : MonoBehaviour
 
     public int maxHealth;
     public int currentHealth;
+    public int damageToDeal;
 
     public HealthBar enemyHealthBar;
+    public Transform enemyTransform;
+
+    public LayerMask playerLayer;
 
 
     void Start()
@@ -20,7 +24,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      Collider2D[] playerHit = Physics2D.OverlapCircleAll(enemyTransform.position, (float).5, playerLayer);
 
+      damagePlayer(playerHit, damageToDeal);
     }
 
 
@@ -28,5 +34,30 @@ public class Enemy : MonoBehaviour
     {
       currentHealth -= damage;
       enemyHealthBar.GetComponent<HealthBar>().SetHealth(currentHealth);
+
+      if (currentHealth < 1)
+      {
+        currentHealth = 0;
+        isDead = true;
+      }
+    }
+
+
+    private void damagePlayer(Collider2D[] playerToDamage, int damage)
+    {
+      foreach(Collider2D player in playerToDamage)
+      {
+        if (!player.GetComponent<Player>().isDead)
+        {
+          player.GetComponent<Player>().TakeDamage(damage);
+          Debug.Log("Enemy Hit!");
+        }
+      }
+    }
+
+
+    private Collider2D[] DetectLayerCollision(/*Transform collisionPoint, float collisionRadius, LayerMask layerToCollide*/)
+    {
+      return Physics2D.OverlapCircleAll(enemyTransform.position, (float).5, playerLayer);
     }
 }

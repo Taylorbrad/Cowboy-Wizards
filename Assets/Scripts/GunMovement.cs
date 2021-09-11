@@ -9,6 +9,9 @@ public class GunMovement : MonoBehaviour
     public SpriteRenderer sprite;
     public SpriteRenderer flash;
 
+    public Transform playerPos;
+    public Transform gunPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +21,15 @@ public class GunMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        gunPos.position = playerPos.position;
         Vector2 moveVec = Vector2.zero;
         moveVec.x = Input.GetAxisRaw("Horizontal");
         moveVec.y = Input.GetAxisRaw("Vertical");
 
         if(moveVec.magnitude > 1)
         {
-            moveVec = moveVec.normalized;
+            //moveVec = moveVec.normalized;
+
         }
 
         Vector3 pos = transform.rotation.eulerAngles;
@@ -44,6 +48,6 @@ public class GunMovement : MonoBehaviour
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        rb.velocity = moveVec * moveSpeed;
+        //rb.velocity = moveVec * moveSpeed;
     }
 }

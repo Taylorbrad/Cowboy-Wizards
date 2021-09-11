@@ -8,6 +8,7 @@ public class bullet : MonoBehaviour
   public int timeToLive;
   public Transform bulletTransform;
   public LayerMask enemyLayer;
+  public Collider2D bulletCollider;
   //public bool canPierce;
   public int pierce;
   private int pierceAmt;
@@ -65,8 +66,12 @@ public class bullet : MonoBehaviour
     {
       if (pierceAmt != 0)
       {
-        damageEnemy(collidedWith, damage);
-        pierceAmt--;
+        if (bulletCollider.IsTouchingLayers(enemyLayer))
+        {
+          damageEnemy(collidedWith, damage);
+          pierceAmt--;
+        }
+
 
 
 

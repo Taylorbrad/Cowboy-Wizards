@@ -37,7 +37,7 @@ public class ShootGun : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0)){
-            float angle = GetAngleFromPlayerToMouse();
+            //float angle = GetAngleFromPlayerToMouse();
 
             bulletPos.rotation = gunPos.rotation;
             bullet.enabled = true;
@@ -72,8 +72,8 @@ public class ShootGun : MonoBehaviour
         //else
     }
 
-    
 
+/*
     public float GetAngleFromPlayerToMouse()
     {
       Vector3 mousePosWorld = cam.ScreenToWorldPoint(new Vector3(mousePos[0],mousePos[1], cam.nearClipPlane));
@@ -82,5 +82,5 @@ public class ShootGun : MonoBehaviour
       float deltaY = mousePosWorld[1] - playerPosVec[1];
       return (Mathf.Atan2(deltaX, deltaY) * 180/Mathf.PI);
     }
-
+*/
 }

@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
       Collider2D[] playerHit = Physics2D.OverlapCircleAll(enemyTransform.position, (float).5, playerLayer);
 
       damagePlayer(playerHit, damageToDeal);
@@ -47,10 +48,10 @@ public class Enemy : MonoBehaviour
     {
       foreach(Collider2D player in playerToDamage)
       {
-        if (!player.GetComponent<Player>().isDead)
+        if (!player.GetComponent<Player>().isDead && !player.GetComponent<Player>().isInvincible)
         {
           player.GetComponent<Player>().TakeDamage(damage);
-          Debug.Log("Enemy Hit!");
+          Debug.Log("Player Hit!");
         }
       }
     }
